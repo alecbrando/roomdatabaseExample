@@ -11,8 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.alecbrando.roomdatabase.R
-import com.alecbrando.roomdatabase.data.User
 import com.alecbrando.roomdatabase.databinding.FragmentAddBinding
+import com.alecbrando.roomdatabase.fragments.model.User
 import com.alecbrando.roomdatabase.viewmodel.MainViewModel
 
 

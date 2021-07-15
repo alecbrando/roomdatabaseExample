@@ -21,10 +21,6 @@ class ListFragment : Fragment() {
 
     private lateinit var mUserViewModel: MainViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +36,6 @@ class ListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mUserViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        val users = mUserViewModel.readAllData
         val recyclerView = binding.recyclerView
         mUserViewModel.readAllData.observe(viewLifecycleOwner, { users ->
         recyclerView.adapter = ListAdapter(users)

@@ -4,9 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.alecbrando.roomdatabase.R
-import com.alecbrando.roomdatabase.data.User
+import com.alecbrando.roomdatabase.fragments.model.User
 
 class ListAdapter(private val users : List<User>): RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
@@ -15,6 +16,7 @@ class ListAdapter(private val users : List<User>): RecyclerView.Adapter<ListAdap
         val firstName = itemView.findViewById<TextView>(R.id.first_name)
         val lastName = itemView.findViewById<TextView>(R.id.last_name)
         val age = itemView.findViewById<TextView>(R.id.age)
+        val row = itemView.findViewById<View>(R.id.user_row)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -27,6 +29,11 @@ class ListAdapter(private val users : List<User>): RecyclerView.Adapter<ListAdap
         holder.firstName.text = currentItem.firstName
         holder.lastName.text = currentItem.lastName
         holder.age.text = currentItem.age.toString()
+
+        holder.row.setOnClickListener {
+            val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
+            Navigation.findNavController(holder.itemView).navigate(action)
+        }
     }
 
     override fun getItemCount() = users.size
