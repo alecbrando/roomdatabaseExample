@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/listFragment">
+    app:startDestination="@id/ListFragment">
 
     <fragment
-        android:id="@+id/listFragment"
-        android:name="com.alecbrando.roomdatabase.listFragment"
-        android:label="fragment_list"
+        android:id="@+id/ListFragment"
+        android:name="com.alecbrando.roomdatabase.fragments.list.ListFragment"
+        android:label="List"
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/action_listFragment_to_addFragment"
@@ -17,10 +17,10 @@
     <fragment
         android:id="@+id/addFragment"
         android:name="com.alecbrando.roomdatabase.fragments.add.AddFragment"
-        android:label="fragment_add"
+        android:label="Add a User"
         tools:layout="@layout/fragment_add" >
         <action
             android:id="@+id/action_addFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            app:destination="@id/ListFragment" />
     </fragment>
 </navigation>
