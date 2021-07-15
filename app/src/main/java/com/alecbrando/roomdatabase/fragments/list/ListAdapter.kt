@@ -34,7 +34,23 @@ class ListAdapter(private val users : List<User>): RecyclerView.Adapter<ListAdap
             val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
             Navigation.findNavController(holder.itemView).navigate(action)
         }
+
+        holder.row.setOnLongClickListener {
+
+            true
+        }
     }
+
+//    private fun createDialog(user: User, context: Context){
+//        val builder = AlertDialog.Builder(context)
+//        builder.setMessage("Delete ${user.firstName}")
+//            .setPositiveButton("Delete", { dialog, which ->
+//
+//            })
+//            .setNegativeButton("Cancel", { dialog, which ->  })
+//
+//        builder.create()
+//    }
 
     override fun getItemCount() = users.size
 }
