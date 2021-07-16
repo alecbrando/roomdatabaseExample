@@ -15,8 +15,8 @@ import com.alecbrando.roomdatabase.viewmodel.MainViewModel
 
 class ListFragment : Fragment() {
 
-    private lateinit var _binding : FragmentListBinding
-    private val binding : FragmentListBinding
+    private lateinit var _binding: FragmentListBinding
+    private val binding: FragmentListBinding
         get() = _binding
 
     private lateinit var mUserViewModel: MainViewModel
@@ -37,14 +37,11 @@ class ListFragment : Fragment() {
         mUserViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         val recyclerView = binding.recyclerView
         mUserViewModel.readAllData.observe(viewLifecycleOwner, { users ->
-        recyclerView.adapter = ListAdapter(users)
+            recyclerView.adapter = ListAdapter(users)
         })
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
     }
-
-
-
 }
